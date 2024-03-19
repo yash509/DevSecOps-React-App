@@ -1,29 +1,23 @@
-# Use official Node.js image as base
-FROM node:14-alpine AS build
+# Use Node.js 16 slim as the base image
+FROM node:16-slim
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json if available to work directory
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy project files and folders to the current working directory (i.e. root folder of the app)
+# Copy the rest of the application code
 COPY . .
 
-# Build the React app for production
+# Build the React app
 RUN npm run build
 
-# Use NGINX as a lightweight web server to serve the static content
-FROM nginx:alpine
+# Expose port 3000 (or the port your app is configured to listen on)
+EXPOSE 3000
 
-# Copy the built React app from the build stage to the NGINX html directory
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port 80 to the outside world
-EXPOSE 80
-
-# Start NGINX server when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+# Start your Node.js server (assuming it serves the React app)
+CMD ["npm", "start"]
