@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: yash5090/reactapp2:latest
+        image: yash5090/react-app:latest
         ports:
         - containerPort: 3000  # Port your application listens on
