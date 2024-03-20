@@ -4,7 +4,7 @@ metadata:
   name: react-app-service
 spec:
   selector:
-    app: reactapp2
+    app: react-app
   ports:
     - protocol: TCP
       port: 3000  # Port exposed by the service externally (outside the cluster)
