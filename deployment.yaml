@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: reactapp2
 spec:
   replicas: 1  # Number of desired replicas
   selector:
     matchLabels:
-      app: react-app
+      app: reactapp2
   template:
     metadata:
       labels:
-        app: react-app
+        app: reactapp2
     spec:
       containers:
       - name: react-app
-        image: yash5090/react-app:latest
+        image: yash5090/reactapp2:latest
         ports:
         - containerPort: 3000  # Port your application listens on
