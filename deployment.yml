@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reactapp2
+  name: react-app
 spec:
   replicas: 1  # Number of desired replicas
   selector:
     matchLabels:
-      app: reactapp2
+      app: react-app
   template:
     metadata:
       labels:
-        app: reactapp2
+        app: react-app
     spec:
       containers:
       - name: react-app
