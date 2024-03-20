@@ -35,7 +35,7 @@ data "aws_subnets" "public" {
 
 # EKS Cluster
 resource "aws_eks_cluster" "example" {
-  name     = "React-App-Cluster" # This name can be changed
+  name     = "react-app-Cluster" # This name can be changed
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
@@ -82,7 +82,7 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryRea
 # Cluster's Node Group
 resource "aws_eks_node_group" "example" {
   cluster_name    = aws_eks_cluster.example.name
-  node_group_name = "Node-Port-React-App" # This name can be changed
+  node_group_name = "Node-Port-react-app" # This name can be changed
   node_role_arn   = aws_iam_role.example1.arn
   subnet_ids      = data.aws_subnets.public.ids
 
